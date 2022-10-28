@@ -69,3 +69,12 @@ To list docker image
 Run docker image 
 
 ''' docker run -p 5000:5000 -e PORT=5000 
+
+To check running container in docker 
+```
+docker ps
+```
+to stop docker container 
+```
+docker stop <container_id>
+```
