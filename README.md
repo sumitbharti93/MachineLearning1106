@@ -82,4 +82,7 @@ docker stop <container_id>
 ```
 python setup.py install
 ```
+""" when we are putting "-e ." in requirements file.Setup.py file should be available in directory """
+
+
 
