@@ -84,5 +84,8 @@ python setup.py install
 ```
 """ when we are putting "-e ." in requirements file.Setup.py file should be available in directory """
 
+to use ipynb file we have to install below package 
 
-
+"""
+pip install ipykernel 
+"""
