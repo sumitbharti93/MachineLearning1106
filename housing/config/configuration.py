@@ -18,6 +18,7 @@ class Configuration:
             raise HousingException(e,sys) from e
     def get_data_ingestion_config(self) ->DataIngestionConfig:
         try:
+            raise Exception("testing Exception")
             artifact_dir = self.training_pipeline_config.artifact_dir
             data_ingestion_artifact_dir=os.path.join(
                 artifact_dir,
@@ -63,7 +64,14 @@ class Configuration:
 
 
     def get_data_validation_config(self)-> DataValidationConfig:
-        pass
+        try:
+            schema_file_name = None
+            data_validation_config = DataValidationConfig(
+                schema_file_path = schema_file_path
+            )
+            return data_validation_config
+        except Exception as e:
+            raise HousingException(e,sys) from e
     
     def get_data_transformation_config(self)-> DataTransformationConfig:
         pass
