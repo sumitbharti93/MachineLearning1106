@@ -92,3 +92,8 @@ pip install ipykernel
 
  ''' typing somethig to check pull command '''''
   
+Data Drift:
+ When your dataset gets changes we call it as a data drift 
+
+
+ 
