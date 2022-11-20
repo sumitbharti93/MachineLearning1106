@@ -89,5 +89,6 @@ to use ipynb file we have to install below package
 """
 pip install ipykernel 
 """
-  ''' typing somethig to check pull command '''''
+
+ ''' typing somethig to check pull command '''''
   
