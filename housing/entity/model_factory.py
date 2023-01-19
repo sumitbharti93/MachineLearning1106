@@ -156,7 +156,7 @@ def get_sample_model_config_yaml_file(export_dir: str):
 
 
 class ModelFactory:
-    def __init__(self, model_config_path: str = None,):
+    def __init__(self, model_config_path: str = None, ):
         try:
             self.config: dict = ModelFactory.read_params(model_config_path)
 
@@ -188,7 +188,7 @@ class ModelFactory:
     @staticmethod
     def read_params(config_path: str) -> dict:
         try:
-            with open(config_path) as yaml_file:
+            with open(config_path, 'r') as yaml_file:
                 config:dict = yaml.safe_load(yaml_file)
             return config
         except Exception as e:
@@ -367,3 +367,4 @@ class ModelFactory:
                                                                                   base_accuracy=base_accuracy)
         except Exception as e:
             raise HousingException(e, sys)
+

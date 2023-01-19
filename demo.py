@@ -19,6 +19,7 @@ def main():
         # print(data_validation_config)
 
     except Exception as e:
+        print(e)
         logging.error(f"{e}")
         print(e)
 

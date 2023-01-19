@@ -1,17 +1,17 @@
 import os 
 import sys
 
-class HousingException(Exception):
+class HousingException(Exception): ## Inheriting the Exception class 
 
     def __init__(self,error_message:Exception, error_detail:sys):
-        super().__init__(error_message)
-        Exception(error_message)
+        super().__init__(error_message) ## Passing the information to parent/Exception class
+        # Exception(error_message) equivalent to above line of supper message 
         self.error_message=HousingException.get_detailed_error_message(error_message=error_message,
                                                                         error_detail=error_detail
                                                                         )
 
 
-    @staticmethod
+    @staticmethod # It can be called without creating a object 
     def get_detailed_error_message(error_message:Exception, error_detail:sys)->str:
         """ 
         error_message:Exception object

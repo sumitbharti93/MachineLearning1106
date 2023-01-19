@@ -46,7 +46,7 @@ class Pipeline(Thread):
             super().__init__(daemon=False, name = 'pipeline')
             self.config=config
         except Exception as e:
-            raise HousingException(e,sys) from e 
+            raise HousingException(e,sys) from e
 
     def start_data_ingestion(self) -> DataIngestionArtifact:
         try:
@@ -137,11 +137,12 @@ class Pipeline(Thread):
 
             self.save_experiment()
 
-            # dataingestion 
+            # dataingestion
+            
             data_ingestion_artifact = self.start_data_ingestion()
-            print('sumit')
+
             data_validation_artifact = self.start_data_validation(data_ingestion_artifact = data_ingestion_artifact)
-            print('sumit bharti')
+            
             data_transformation_artifact = self.start_data_transformation(
                 data_ingestion_artifact=data_ingestion_artifact,
                 data_validation_artifact=data_validation_artifact

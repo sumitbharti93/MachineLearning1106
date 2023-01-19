@@ -8,6 +8,7 @@ import numpy as np
 from six.moves import urllib
 import pandas as pd 
 from sklearn.model_selection import StratifiedShuffleSplit
+import shutil 
 
 class DataIngestion:
 
@@ -15,9 +16,10 @@ class DataIngestion:
         try:
             logging.info(f"{'=='*20}Data Ingestion log started.{'='*20} ")
             self.data_ingestion_config = data_ingestion_config
+            print(self.data_ingestion_config)
 
         except Exception as e:
-            raise HousingException(e,sys)
+            raise HousingException(e,sys) from e
 
     def download_housing_data(self,):
         try:
@@ -35,7 +37,9 @@ class DataIngestion:
             tgz_file_path = os.path.join(tgz_download_dir, housing_file_name)
             logging.info(f"Downloading file from :[{download_url}] into :[{tgz_file_path}]")
 
-            urllib.request.urlretrieve(download_url, tgz_file_path)
+            #urllib.request.urlretrieve(download_url, tgz_file_path)
+            shutil.copy(r'D:\Python Project\MachineLearning1106\housing\artifact\data_ingestion\2022 -11 -07-20-26-18\tgz_data\housing.tgz', tgz_file_path)
+
             logging.info(f"File :[{tgz_file_path}] has been downloaded successfully.")
             return tgz_file_path
 

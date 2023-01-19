@@ -10,7 +10,7 @@ DESCRIPTION = "This is first FSDS Nov Batch Machine Learning Project"
 
 REQUIREMENT_FILE_NAME="requirements.txt" 
 
-HYPHEN_E_DOT = "-e ."
+HYPHEN_E_DOT = "-e ." ## This is going to check all the required packages  and then install it. 
 
 def get_requirements_list() -> List[str]:
     """

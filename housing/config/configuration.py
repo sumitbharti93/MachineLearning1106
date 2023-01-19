@@ -6,14 +6,13 @@ import os,sys
 
 from housing.constant import *
 from housing.exception import HousingException
-
 class Configuration:
     def __init__(self, config_file_path:str = CONFIG_FILE_PATH, current_time_stamp:str = CURRENT_TIME_STAMP):
         try:
             self.config_info  = read_yaml_file(file_path=config_file_path)
-            print(self.config_info)
             self.training_pipeline_config = self.get_training_pipeline_config()
             self.time_stamp = current_time_stamp
+
         except Exception as e:
             raise HousingException(e,sys) from e
             
@@ -26,7 +25,7 @@ class Configuration:
                 self.time_stamp
             )
             data_ingestion_info = self.config_info[DATA_INGESTION_CONFIG_KEY]
-            
+
             dataset_download_url = data_ingestion_info[DATA_INGESTION_DOWNLOAD_URL_KEY]
             tgz_download_dir = os.path.join(
                 data_ingestion_artifact_dir,
@@ -48,7 +47,6 @@ class Configuration:
                 ingested_data_dir,
                 data_ingestion_info[DATA_INGESTION_TEST_DIR_KEY]
             )
-
 
             data_ingestion_config=DataIngestionConfig(
                 dataset_download_url=dataset_download_url, 
@@ -151,6 +149,7 @@ class Configuration:
                     self.time_stamp
                 )
                 model_trainer_config_info = self.config_info[MODEL_TRAINER_CONFIG_KEY]
+                
                 trained_model_file_path = os.path.join(model_trainer_artifact_dir,
                 model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_DIR_KEY],
                 model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY]
@@ -216,3 +215,6 @@ class Configuration:
             return training_pipeline_config
         except Exception as e:
             raise HousingException(e,sys) from e 
+
+a = Configuration()
+a.get_data_validation_config()

@@ -163,7 +163,7 @@ def saved_models_dir(req_path):
         "parent_folder": os.path.dirname(abs_path),
         "parent_label": abs_path
     }
-    return render_template('saved_models_files.html', result=result)
+    return render_template('saved_model_files.html', result=result)
 
 
 @app.route("/update_model_config", methods=['GET', 'POST'])
@@ -212,7 +212,6 @@ def render_log_dir(req_path):
         "parent_label": abs_path
     }
     return render_template('log_files.html', result=result)
-
 
 if __name__ == "__main__":
     app.run()

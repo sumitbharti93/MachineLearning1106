@@ -78,7 +78,7 @@ class ModelTrainer:
             logging.info(f"Best model found on training dataset: {best_model}")
             
             logging.info(f"Extracting trained model list.")
-            grid_searched_best_model_list:List[GridSearchedBestModel]=model_factory.grid_searched_best_model_list
+            grid_searched_best_model_list:List[GridSearchedBestModel] = model_factory.grid_searched_best_model_list
             
             model_list = [model.best_model for model in grid_searched_best_model_list ]
             logging.info(f"Evaluation all trained model on training and testing dataset both")
@@ -103,7 +103,6 @@ class ModelTrainer:
             train_accuracy=metric_info.train_accuracy,
             test_accuracy=metric_info.test_accuracy,
             model_accuracy=metric_info.model_accuracy
-            
             )
 
             logging.info(f"Model Trainer Artifact: {model_trainer_artifact}")
